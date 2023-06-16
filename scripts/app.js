@@ -220,6 +220,14 @@ createAndStoreChars('Yoimiya', 'Pyro', 'Transience', 5)
 createAndStoreChars('Yun Jin', 'Geo', 'Diligence', 4)
 createAndStoreChars('Zhongli', 'Geo', 'Gold', 5)
 
+function charRarityColor(charImgEl, chars) {
+  if (chars.rarity === 5) {
+    charImgEl.classList.add('five-star')
+  } else if (chars.rarity === 4) {
+    charImgEl.classList.add('four-star')
+  }
+}
+
 function farmableTalents() {
   let monstadtFarmableChars = []
   let liyueFarmableChars = []
@@ -278,6 +286,12 @@ function farmableTalents() {
     charImgEl.setAttribute('src', chars)
     charImgEl.style.background = 'white'
 
+    if (chars.rarity === 5) {
+      charImgEl.classList.add('five-star')
+    } else if (chars.rarity === 4) {
+      charImgEl.classList.add('four-star')
+    }
+
     // Insert function here
     document
       .querySelector('.monstadt-characters-container')
@@ -287,14 +301,12 @@ function farmableTalents() {
     const charImgEl = document.createElement('img')
     charImgEl.setAttribute('src', chars)
     charImgEl.style.background = 'white'
-
     document.querySelector('.liyue-characters-container').appendChild(charImgEl)
   }
   for (chars of inazumaFarmableChars) {
     const charImgEl = document.createElement('img')
     charImgEl.setAttribute('src', chars)
     charImgEl.style.background = 'white'
-
     document
       .querySelector('.inazuma-characters-container')
       .appendChild(charImgEl)
@@ -312,16 +324,10 @@ function farmableTalents() {
 
 farmableTalents()
 
-if (allChars.find((name) => name === 'Zhongli')) {
-  console.log(char.rarity)
-}
+// Nav bar
 
-function charRarityColor(charImgEl) {
-  for (char of allChars) {
-    if (char.rarity === 5) {
-      charImgEl.classList.add('five-star')
-    } else if (char.rarity === 4) {
-      charImgEl.classList.add('four-star')
-    }
-  }
+const burger = document.querySelector('.burger')
+burger.onclick = () => {
+  const navBar = document.querySelector('.nav-bar')
+  navBar.classList.toggle('active')
 }
