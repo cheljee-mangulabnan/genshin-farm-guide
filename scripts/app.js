@@ -21,32 +21,6 @@ const farmableDays = [
   'Wednesday/Saturday',
 ]
 
-// will return index from array weekdays
-const currentDay = currentDate.getDay()
-
-console.log(currentDay)
-
-let availableToday = `Available Today: ${getFarmableDays(currentDay)}`
-document.querySelector('.available-title').innerHTML = availableToday
-
-const talentMaterials = [
-  // Monday/Thursday
-  '../assets/talent-materials/monstadt-freedom.png',
-  '../assets/talent-materials/liyue-prosperity.png',
-  '../assets/talent-materials/inazuma-transience.png',
-  '../assets/talent-materials/sumeru-admonition.png',
-  // Tuesday/Friday
-  '../assets/talent-materials/monstadt-resistance.png',
-  '../assets/talent-materials/liyue-diligence.png',
-  '../assets/talent-materials/inazuma-elegance.png',
-  '../assets/talent-materials/sumeru-ingenuity.png',
-  // Wednesday/Saturday
-  '../assets/talent-materials/monstadt-ballad.png',
-  '../assets/talent-materials/liyue-gold.png',
-  '../assets/talent-materials/inazuma-light.png',
-  '../assets/talent-materials/sumeru-praxis.png',
-]
-
 const talentMaterialNames = [
   // Monday/Thursday
   'Freedom',
@@ -67,6 +41,33 @@ const talentMaterialNames = [
 
 const regionPrefix = ['.monstadt-', '.liyue-', '.inazuma-', '.sumeru-']
 
+const talentMaterials = [
+  // Monday/Thursday
+  '../assets/talent-materials/monstadt-freedom.png',
+  '../assets/talent-materials/liyue-prosperity.png',
+  '../assets/talent-materials/inazuma-transience.png',
+  '../assets/talent-materials/sumeru-admonition.png',
+  // Tuesday/Friday
+  '../assets/talent-materials/monstadt-resistance.png',
+  '../assets/talent-materials/liyue-diligence.png',
+  '../assets/talent-materials/inazuma-elegance.png',
+  '../assets/talent-materials/sumeru-ingenuity.png',
+  // Wednesday/Saturday
+  '../assets/talent-materials/monstadt-ballad.png',
+  '../assets/talent-materials/liyue-gold.png',
+  '../assets/talent-materials/inazuma-light.png',
+  '../assets/talent-materials/sumeru-praxis.png',
+]
+
+// Array of all Character Objects
+const allChars = []
+
+// will return index from array weekdays
+const currentDay = currentDate.getDay()
+
+const availableToday = `Available Today: ${getFarmableDays(currentDay)}`
+document.querySelector('.available-title').innerHTML = availableToday
+
 function getFarmableDays(currentDay) {
   if (currentDay === 0) {
     return farmableDays[0]
@@ -79,50 +80,31 @@ function getFarmableDays(currentDay) {
   }
 }
 
+function renderTalentMaterials(i, k) {
+  const talentMaterialClass = regionPrefix[k] + 'item-name'
+  const talentClass = regionPrefix[k] + 'talent-icon'
+  const talentElem = document.createElement('img')
+  talentElem.src = talentMaterials[i]
+  document.querySelector(talentClass).appendChild(talentElem)
+  document.querySelector(talentMaterialClass).innerHTML = talentMaterialNames[i]
+}
+
 function getTalentMaterials(currentDay) {
   if (currentDay === 0) {
     for (let i = 4, k = 0; i < 7; i++, k++) {
-      const talentMaterialClass = regionPrefix[k] + 'item-name'
-      const talentClass = regionPrefix[k] + 'talent-icon'
-      const talentElem = document.createElement('img')
-      talentElem.src = talentMaterials[i]
-      document.querySelector(talentClass).appendChild(talentElem)
-      document.querySelector(talentMaterialClass).innerHTML =
-        talentMaterialNames[i]
+      renderTalentMaterials(i, k)
     }
   } else if (currentDay === 1 || currentDay === 4) {
     for (let i = 0, k = 0; i < 4; i++, k++) {
-      const talentClass = regionPrefix[k] + 'talent-icon'
-      const talentMaterialClass = regionPrefix[k] + 'item-name'
-
-      const talentElem = document.createElement('img')
-      talentElem.src = talentMaterials[i]
-      document.querySelector(talentMaterialClass).innerHTML = document
-        .querySelector(talentClass)
-        .appendChild(talentElem)
-      document.querySelector(talentMaterialClass).innerHTML =
-        talentMaterialNames[i]
+      renderTalentMaterials(i, k)
     }
   } else if (currentDay === 2 || currentDay === 5) {
     for (let i = 4, k = 0; i < 8; i++, k++) {
-      const talentClass = regionPrefix[k] + 'talent-icon'
-      const talentMaterialClass = regionPrefix[k] + 'item-name'
-
-      const talentElem = document.createElement('img')
-      talentElem.src = talentMaterials[i]
-      document.querySelector(talentClass).appendChild(talentElem)
-      document.querySelector(talentMaterialClass).innerHTML =
-        talentMaterialNames[i]
+      renderTalentMaterials(i, k)
     }
   } else if (currentDay === 3 || currentDay === 6) {
     for (let i = 8, k = 0; i < 12; i++, k++) {
-      const talentClass = regionPrefix[k] + 'talent-icon'
-      const talentMaterialClass = regionPrefix[k] + 'item-name'
-      const talentElem = document.createElement('img')
-      talentElem.src = talentMaterials[i]
-      document.querySelector(talentClass).appendChild(talentElem)
-      document.querySelector(talentMaterialClass).innerHTML =
-        talentMaterialNames[i]
+      renderTalentMaterials(i, k)
     }
   }
 }
@@ -139,8 +121,6 @@ function Character(name, element, talent, rarity) {
     name.toLowerCase().replace(' ', '-').concat('-icon.png')
   this.rarity = rarity
 }
-
-const allChars = []
 
 function createAndStoreChars(name, element, talent, rarity) {
   const char = new Character(name, element, talent, rarity)
@@ -282,11 +262,14 @@ function farmableTalents() {
 
   // Display part ng function pag append sa region container div
   for (chars of monstadtFarmableChars) {
+    // Sorting function for rarity
+    //
     const charImgEl = document.createElement('img')
     charImgEl.setAttribute('src', chars)
-    charImgEl.style.background = 'white'
-
+    console.log(typeof chars)
     if (chars.rarity === 5) {
+      charImgEl.className = 'five-star'
+
       charImgEl.classList.add('five-star')
     } else if (chars.rarity === 4) {
       charImgEl.classList.add('four-star')
