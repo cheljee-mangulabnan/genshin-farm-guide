@@ -80,6 +80,18 @@ function getFarmableDays(currentDay) {
   }
 }
 
+function farmableDay(day1, day2) {
+  if (day1 === 'sunday' && day2 == undefined) {
+    return currentDay === 0 ? true : false
+  } else if (day1 === 'monday' && day2 === 'thursday') {
+    return currentDay === 1 || currentDay === 4 ? true : false
+  } else if (day1 === 'tuesday' && day2 === 'friday') {
+    return currentDay === 2 || currentDay === 5 ? true : false
+  } else if (day1 === 'wednesday' && day2 === 'saturday') {
+    return currentDay === 3 || currentDay === 6 ? true : false
+  }
+}
+
 function renderTalentMaterials(i, k) {
   const talentMaterialClass = regionPrefix[k] + 'item-name'
   const talentClass = regionPrefix[k] + 'talent-icon'
@@ -208,101 +220,55 @@ function charRarityColor(charImgEl, chars) {
   }
 }
 
+function renderChars(charArray, destination) {
+  function compareRarity(a, b) {
+    return b.rarity - a.rarity
+  }
+  charArray.sort(compareRarity)
+  for (chars of charArray) {
+    const charImgEl = document.createElement('img')
+    charImgEl.setAttribute('src', chars.icon)
+    charRarityColor(charImgEl, chars)
+    document.querySelector(destination).appendChild(charImgEl)
+  }
+}
+
 function farmableTalents() {
-  let monstadtFarmableChars = []
-  let liyueFarmableChars = []
-  let inazumaFarmableChars = []
-  let sumeruFarmableChars = []
+  const monstadtFarmableChars = []
+  const liyueFarmableChars = []
+  const inazumaFarmableChars = []
+  const sumeruFarmableChars = []
+
+  function sortCharRegion(talentIndex) {
+    // Push char in respective array
+    if (talentMaterialNames.indexOf(char.talent) === talentIndex) {
+      monstadtFarmableChars.push(char)
+    } else if (talentMaterialNames.indexOf(char.talent) === talentIndex + 1) {
+      liyueFarmableChars.push(char)
+    } else if (talentMaterialNames.indexOf(char.talent) === talentIndex + 2) {
+      inazumaFarmableChars.push(char)
+    } else if (talentMaterialNames.indexOf(char.talent) === talentIndex + 3) {
+      sumeruFarmableChars.push(char)
+    }
+  }
   for (char of allChars) {
     // Sorts char acc to the region of their talent materials
-    // Stores the src or char.icon in its respective array
-
-    if (currentDay === 0) {
+    if (farmableDay('sunday')) {
       // IDK YET
-    }
-
-    // Monday/Thursday
-    else if (currentDay === 1 || currentDay === 4) {
-      // Freedom
-      if (talentMaterialNames.indexOf(char.talent) === 0) {
-        monstadtFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 1) {
-        liyueFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 2) {
-        inazumaFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 3) {
-        sumeruFarmableChars.push(char.icon)
-      }
-    }
-    // Tuesday/Friday
-    else if (currentDay === 2 || currentDay === 5) {
-      if (talentMaterialNames.indexOf(char.talent) === 4) {
-        monstadtFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 5) {
-        liyueFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 6) {
-        inazumaFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 7) {
-        sumeruFarmableChars.push(char.icon)
-      }
-    }
-    // Wednesday/Saturday
-    else if (currentDay === 3 || currentDay === 6) {
-      if (talentMaterialNames.indexOf(char.talent) === 8) {
-        monstadtFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 9) {
-        liyueFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 10) {
-        inazumaFarmableChars.push(char.icon)
-      } else if (talentMaterialNames.indexOf(char.talent) === 11) {
-        sumeruFarmableChars.push(char.icon)
-      }
+    } else if (farmableDay('monday', 'thursday')) {
+      sortCharRegion(0)
+    } else if (farmableDay('tuesday', 'friday')) {
+      sortCharRegion(4)
+    } else if (farmableDay('wednesday', 'saturday')) {
+      sortCharRegion(8)
     }
   }
 
   // Display part ng function pag append sa region container div
-  for (chars of monstadtFarmableChars) {
-    // Sorting function for rarity
-    //
-    const charImgEl = document.createElement('img')
-    charImgEl.setAttribute('src', chars)
-    console.log(typeof chars)
-    if (chars.rarity === 5) {
-      charImgEl.className = 'five-star'
-
-      charImgEl.classList.add('five-star')
-    } else if (chars.rarity === 4) {
-      charImgEl.classList.add('four-star')
-    }
-
-    // Insert function here
-    document
-      .querySelector('.monstadt-characters-container')
-      .appendChild(charImgEl)
-  }
-  for (chars of liyueFarmableChars) {
-    const charImgEl = document.createElement('img')
-    charImgEl.setAttribute('src', chars)
-    charImgEl.style.background = 'white'
-    document.querySelector('.liyue-characters-container').appendChild(charImgEl)
-  }
-  for (chars of inazumaFarmableChars) {
-    const charImgEl = document.createElement('img')
-    charImgEl.setAttribute('src', chars)
-    charImgEl.style.background = 'white'
-    document
-      .querySelector('.inazuma-characters-container')
-      .appendChild(charImgEl)
-  }
-  for (chars of sumeruFarmableChars) {
-    const charImgEl = document.createElement('img')
-    charImgEl.setAttribute('src', chars)
-    charImgEl.style.background = 'white'
-
-    document
-      .querySelector('.sumeru-characters-container')
-      .appendChild(charImgEl)
-  }
+  renderChars(monstadtFarmableChars, '.monstadt-characters-container')
+  renderChars(liyueFarmableChars, '.liyue-characters-container')
+  renderChars(inazumaFarmableChars, '.inazuma-characters-container')
+  renderChars(sumeruFarmableChars, '.sumeru-characters-container')
 }
 
 farmableTalents()
