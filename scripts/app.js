@@ -80,7 +80,7 @@ function getFarmableDays(currentDay) {
   }
 }
 
-function farmableDay(day1, day2) {
+function ifFarmableDay(day1, day2) {
   if (day1 === 'sunday' && day2 == undefined) {
     return currentDay === 0 ? true : false
   } else if (day1 === 'monday' && day2 === 'thursday') {
@@ -134,83 +134,34 @@ function Character(name, element, talent, rarity) {
   this.rarity = rarity
 }
 
-function createAndStoreChars(name, element, talent, rarity) {
-  const char = new Character(name, element, talent, rarity)
-  allChars.push(char)
+
+function makeCharIcon() {
+  allChars.forEach(char => {
+    const iconSrc = '../assets/character-icons/' +
+    char.name.toLowerCase().replace(' ', '-').concat('-icon.png')
+    char.icon = iconSrc
+  });
+}
+ 
+async function getCharData() {
+  try {
+    const response = await fetch('./char-data.json')
+    // .json() -> converts json to javascript object
+    const data = await response.json()
+    console.log(data)
+    for (char of data) {
+      allChars.push(char)
+    }
+    makeCharIcon()
+    farmableTalents()
+    console.log(allChars[0].name)
+
+  } catch(error) {
+    console.log(error)
+  }
 }
 
-//CREATED USING FUNCTION
-
-createAndStoreChars('Albedo', 'Geo', 'Ballad', 5)
-createAndStoreChars('Alhaitham', 'Dendro', 'Ingenuity', 5)
-createAndStoreChars('Aloy', 'Cryo', 'Freedom', 5)
-createAndStoreChars('Amber', 'Pyro', 'Freedom', 4)
-createAndStoreChars('Arataki Itto', 'Geo', 'Elegance', 5)
-createAndStoreChars('Baizhu', 'Dendro', 'Gold', 5)
-createAndStoreChars('Barbara', 'Hydro', 'Freedom', 4)
-createAndStoreChars('Beidou', 'Electro', 'Gold', 4)
-createAndStoreChars('Bennett', 'Pyro', 'Resistance', 4)
-createAndStoreChars('Candace', 'Hydro', 'Admonition', 4)
-createAndStoreChars('Chongyun', 'Cryo', 'Diligence', 4)
-createAndStoreChars('Collei', 'Dendro', 'Praxis', 4)
-createAndStoreChars('Cyno', 'Electro', 'Admonition', 5)
-createAndStoreChars('Dehya', 'Pyro', 'Praxis', 5)
-createAndStoreChars('Diluc', 'Pyro', 'Resistance', 5)
-createAndStoreChars('Diona', 'Cryo', 'Freedom', 4)
-createAndStoreChars('Dori', 'Electro', 'Ingenuity', 4)
-createAndStoreChars('Eula', 'Cryo', 'Resistance', 5)
-createAndStoreChars('Faruzan', 'Anemo', 'Admonition', 4)
-createAndStoreChars('Fischl', 'Electro', 'Ballad', 4)
-createAndStoreChars('Ganyu', 'Cryo', 'Diligence', 5)
-createAndStoreChars('Gorou', 'Geo', 'Light', 4)
-createAndStoreChars('Hu Tao', 'Pyro', 'Diligence', 5)
-createAndStoreChars('Jean', 'Anemo', 'Resistance', 5)
-createAndStoreChars('Kaeya', 'Cryo', 'Ballad', 4)
-createAndStoreChars('Kamisato Ayaka', 'Cryo', 'Elegance', 5)
-createAndStoreChars('Kamisato Ayato', 'Hydro', 'Elegance', 5)
-createAndStoreChars('Kaveh', 'Dendro', 'Ingenuity', 4)
-createAndStoreChars('Kaedehara Kazuha', 'Anemo', 'Diligence', 5)
-createAndStoreChars('Keqing', 'Electro', 'Prosperity', 5)
-createAndStoreChars('Kirara', 'Dendro', 'Transience', 4)
-createAndStoreChars('Klee', 'Pyro', 'Freedom', 5)
-createAndStoreChars('Kujou Sara', 'Electro', 'Elegance', 4)
-createAndStoreChars('Kuki Shinobu', 'Electro', 'Elegance', 4)
-createAndStoreChars('Lisa', 'Electro', 'Ballad', 4)
-createAndStoreChars('Mika', 'Cryo', 'Ballad', 4)
-createAndStoreChars('Mona', 'Hydro', 'Resistance', 5)
-createAndStoreChars('Nahida', 'Dendro', 'Ingenuity', 5)
-createAndStoreChars('Nilou', 'Hydro', 'Praxis', 5)
-createAndStoreChars('Ningguang', 'Geo', 'Prosperity', 4)
-createAndStoreChars('Noelle', 'Geo', 'Resistance', 4)
-createAndStoreChars('Qiqi', 'Cryo', 'Prosperity', 5)
-createAndStoreChars('Raiden Shogun', 'Electro', 'Light', 5)
-createAndStoreChars('Razor', 'Electro', 'Resistance', 4)
-createAndStoreChars('Rosaria', 'Cryo', 'Ballad', 4)
-createAndStoreChars('Sangonomiya Kokomi', 'Hydro', 'Transience', 5)
-createAndStoreChars('Sayu', 'Anemo', 'Light', 4)
-createAndStoreChars('Shenhe', 'Cryo', 'Prosperity', 5)
-createAndStoreChars('Shikanoin Heizou', 'Anemo', 'Transience', 4)
-createAndStoreChars('Sucrose', 'Anemo', 'Freedom', 4)
-createAndStoreChars('Tartaglia', 'Hydro', 'Freedom', 5)
-createAndStoreChars('Thoma', 'Pyro', 'Transience', 4)
-createAndStoreChars('Tighnari', 'Dendro', 'Admonition', 5)
-createAndStoreChars('Traveler', 'Anemo', 'Freedom', 5)
-createAndStoreChars('Traveler', 'Geo', 'Prosperity', 5)
-createAndStoreChars('Traveler', 'Electro', 'Transience', 5)
-createAndStoreChars('Traveler', 'Dendro', 'Admonition', 5)
-createAndStoreChars('Venti', 'Anemo', 'Ballad', 5)
-createAndStoreChars('Wanderer', 'Anemo', 'Praxis', 5)
-createAndStoreChars('Xiangling', 'Pyro', 'Diligence', 4)
-createAndStoreChars('Xiao', 'Anemo', 'Prosperity', 5)
-createAndStoreChars('Xingqiu', 'Hydro', 'Gold', 4)
-createAndStoreChars('Xinyan', 'Pyro', 'Gold', 4)
-createAndStoreChars('Yae Miko', 'Electro', 'Light', 5)
-createAndStoreChars('Yanfei', 'Pyro', 'Gold', 4)
-createAndStoreChars('Yaoyao', 'Dendro', 'Diligence', 4)
-createAndStoreChars('Yelan', 'Hydro', 'Prosperity', 5)
-createAndStoreChars('Yoimiya', 'Pyro', 'Transience', 5)
-createAndStoreChars('Yun Jin', 'Geo', 'Diligence', 4)
-createAndStoreChars('Zhongli', 'Geo', 'Gold', 5)
+getCharData()
 
 function charRarityColor(charImgEl, chars) {
   if (chars.rarity === 5) {
@@ -239,8 +190,8 @@ function farmableTalents() {
   const inazumaFarmableChars = []
   const sumeruFarmableChars = []
 
+  // Push char in respective array
   function sortCharRegion(talentIndex) {
-    // Push char in respective array
     if (talentMaterialNames.indexOf(char.talent) === talentIndex) {
       monstadtFarmableChars.push(char)
     } else if (talentMaterialNames.indexOf(char.talent) === talentIndex + 1) {
@@ -253,28 +204,26 @@ function farmableTalents() {
   }
   for (char of allChars) {
     // Sorts char acc to the region of their talent materials
-    if (farmableDay('sunday')) {
+    if (ifFarmableDay('sunday')) {
       // IDK YET
-    } else if (farmableDay('monday', 'thursday')) {
+    } else if (ifFarmableDay('monday', 'thursday')) {
       sortCharRegion(0)
-    } else if (farmableDay('tuesday', 'friday')) {
+    } else if (ifFarmableDay('tuesday', 'friday')) {
       sortCharRegion(4)
-    } else if (farmableDay('wednesday', 'saturday')) {
+    } else if (ifFarmableDay('wednesday', 'saturday')) {
       sortCharRegion(8)
     }
   }
 
-  // Display part ng function pag append sa region container div
+  // Display Farmable Characters
   renderChars(monstadtFarmableChars, '.monstadt-characters-container')
   renderChars(liyueFarmableChars, '.liyue-characters-container')
   renderChars(inazumaFarmableChars, '.inazuma-characters-container')
   renderChars(sumeruFarmableChars, '.sumeru-characters-container')
 }
 
-farmableTalents()
 
-// Nav bar
-
+// Responsive Burger Menu 
 const burger = document.querySelector('.burger')
 burger.onclick = () => {
   const navBar = document.querySelector('.nav-bar')
