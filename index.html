@@ -1,84 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Genshin Talent Guide</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="styles/general.css" />
-    <link rel="stylesheet" href="styles/index.css" />
-  </head>
-  <body>
-    <header class="header">
-      <h1 class="title">GENSHIN MATERIALS</h1>
-      <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genshin Talent Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/general.css" />
+  <link rel="stylesheet" href="styles/index.css" />
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="title">GENSHIN MATERIALS</h1>
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <nav class="nav-bar">
+      <ul class="nav-links">
+        <li><a href="#current-day-guide">Today</a></li>
+        <li><a href="#character">Character Materials</a></li>
+        <li><a href="">Talent Materials</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="current-day-guide" class="current-day-guide">
+    <h1 class="available-title"></h1>
+    <div class="container available-today">
+      <div class="title-header">
+        <div class="item-header item-container">Today's Materials</div>
+        <div class="character-header characters-container">Characters</div>
       </div>
-      <nav class="nav-bar">
-        <ul class="nav-links">
-          <li><a href="#current-day-guide">Today</a></li>
-          <li><a href="#character">Character Materials</a></li>
-          <li><a href="">Talent Materials</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section id="current-day-guide" class="current-day-guide">
-      <h1 class="available-title"></h1>
-      <div class="container available-today">
-        <div class="title-header">
-          <div class="item-header item-container">Today's Materials</div>
-          <div class="character-header characters-container">Characters</div>
+      <div class="monstadt-materials materials-container">
+        <div class="item-container monstadt-item-container">
+          <div class="region">Monstadt</div>
+          <div class="monstadt-talent-icon"></div>
+          <p class="monstadt-item-name item-name"></p>
         </div>
-        <div class="monstadt-materials materials-container">
-          <div class="item-container monstadt-item-container">
-            <div class="region">Monstadt</div>
-            <div class="monstadt-talent-icon"></div>
-            <p class="monstadt-item-name item-name"></p>
-          </div>
-          <div class="monstadt-characters-container characters-container"></div>
-        </div>
-        <hr />
-        <div class="liyue-materials materials-container">
-          <div class="item-container liyue-item-container">
-            <div class="region">Liyue</div>
-            <div class="liyue-talent-icon"></div>
-            <p class="liyue-item-name item-name"></p>
-          </div>
-
-          <div class="liyue-characters-container characters-container"></div>
-        </div>
-
-        <hr />
-        <div class="inazuma-materials materials-container">
-          <div class="item-container inazuma-item-container">
-            <div class="region">Inazuma</div>
-            <div class="inazuma-talent-icon"></div>
-            <p class="inazuma-item-name item-name"></p>
-          </div>
-
-          <div class="inazuma-characters-container characters-container"></div>
-        </div>
-        <hr />
-        <div class="sumeru-materials materials-container">
-          <div class="item-container sumeru-item-container">
-            <div class="region">Sumeru</div>
-            <div class="sumeru-talent-icon"></div>
-            <p class="sumeru-item-name item-name"></p>
-          </div>
-          <div class="sumeru-characters-container characters-container"></div>
-        </div>
+        <div class="monstadt-characters-container characters-container"></div>
       </div>
-    </section>
-    <script src="scripts/app.js"></script>
-  </body>
+      <hr />
+      <div class="liyue-materials materials-container">
+        <div class="item-container liyue-item-container">
+          <div class="region">Liyue</div>
+          <div class="liyue-talent-icon"></div>
+          <p class="liyue-item-name item-name"></p>
+        </div>
+
+        <div class="liyue-characters-container characters-container"></div>
+      </div>
+
+      <hr />
+      <div class="inazuma-materials materials-container">
+        <div class="item-container inazuma-item-container">
+          <div class="region">Inazuma</div>
+          <div class="inazuma-talent-icon"></div>
+          <p class="inazuma-item-name item-name"></p>
+        </div>
+
+        <div class="inazuma-characters-container characters-container"></div>
+      </div>
+      <hr />
+      <div class="sumeru-materials materials-container">
+        <div class="item-container sumeru-item-container">
+          <div class="region">Sumeru</div>
+          <div class="sumeru-talent-icon"></div>
+          <p class="sumeru-item-name item-name"></p>
+        </div>
+        <div class="sumeru-characters-container characters-container"></div>
+      </div>
+    </div>
+  </section>
+  <script src="scripts/app.js"></script>
+</body>
+
 </html>

@@ -1,0 +1,489 @@
+[
+  {
+    "name": "Albedo",
+    "element": "Geo",
+    "talent": "Ballad",
+    "rarity": 5
+  },
+  {
+    "name": "Alhaitham",
+    "element": "Dendro",
+    "talent": "Ingenuity",
+    "rarity": 5
+  },
+
+  {
+    "name": "Aloy",
+    "element": "Cryo",
+    "talent": "Freedom",
+    "rarity": 5
+  },
+
+  {
+    "name": "Amber",
+    "element": "Pyro",
+    "talent": "Freedom",
+    "rarity": 4
+  },
+
+  {
+    "name": "Arataki Itto",
+    "element": "Geo",
+    "talent": "Elegance",
+    "rarity": 5
+  },
+
+  {
+    "name": "Baizhu",
+    "element": "Dendro",
+    "talent": "Gold",
+    "rarity": 5
+  },
+
+  {
+    "name": "Barbara",
+    "element": "Hydro",
+    "talent": "Freedom",
+    "rarity": 4
+  },
+
+  {
+    "name": "Beidou",
+    "element": "Electro",
+    "talent": "Gold",
+    "rarity": 4
+  },
+
+  {
+    "name": "Bennett",
+    "element": "Pyro",
+    "talent": "Resistance",
+    "rarity": 4
+  },
+
+  {
+    "name": "Candace",
+    "element": "Hydro",
+    "talent": "Admonition",
+    "rarity": 4
+  },
+
+  {
+    "name": "Chongyun",
+    "element": "Cryo",
+    "talent": "Diligence",
+    "rarity": 4
+  },
+
+  {
+    "name": "Collei",
+    "element": "Dendro",
+    "talent": "Praxis",
+    "rarity": 4
+  },
+
+  {
+    "name": "Cyno",
+    "element": "Electro",
+    "talent": "Admonition",
+    "rarity": 5
+  },
+
+  {
+    "name": "Dehya",
+    "element": "Pyro",
+    "talent": "Praxis",
+    "rarity": 5
+  },
+
+  {
+    "name": "Diluc",
+    "element": "Pyro",
+    "talent": "Resistance",
+    "rarity": 5
+  },
+
+  {
+    "name": "Diona",
+    "element": "Cryo",
+    "talent": "Freedom",
+    "rarity": 4
+  },
+
+  {
+    "name": "Dori",
+    "element": "Electro",
+    "talent": "Ingenuity",
+    "rarity": 4
+  },
+
+  {
+    "name": "Eula",
+    "element": "Cryo",
+    "talent": "Resistance",
+    "rarity": 5
+  },
+
+  {
+    "name": "Faruzan",
+    "element": "Anemo",
+    "talent": "Admonition",
+    "rarity": 4
+  },
+
+  {
+    "name": "Fischl",
+    "element": "Electro",
+    "talent": "Ballad",
+    "rarity": 4
+  },
+
+  {
+    "name": "Ganyu",
+    "element": "Cryo",
+    "talent": "Diligence",
+    "rarity": 5
+  },
+
+  {
+    "name": "Gorou",
+    "element": "Geo",
+    "talent": "Light",
+    "rarity": 4
+  },
+
+  {
+    "name": "Hu Tao",
+    "element": "Pyro",
+    "talent": "Diligence",
+    "rarity": 5
+  },
+
+  {
+    "name": "Jean",
+    "element": "Anemo",
+    "talent": "Resistance",
+    "rarity": 5
+  },
+
+  {
+    "name": "Kaeya",
+    "element": "Cryo",
+    "talent": "Ballad",
+    "rarity": 4
+  },
+
+  {
+    "name": "Kamisato Ayaka",
+    "element": "Cryo",
+    "talent": "Elegance",
+    "rarity": 5
+  },
+
+  {
+    "name": "Kamisato Ayato",
+    "element": "Hydro",
+    "talent": "Elegance",
+    "rarity": 5
+  },
+
+  {
+    "name": "Kaveh",
+    "element": "Dendro",
+    "talent": "Ingenuity",
+    "rarity": 4
+  },
+
+  {
+    "name": "Kaedehara Kazuha",
+    "element": "Anemo",
+    "talent": "Diligence",
+    "rarity": 5
+  },
+
+  {
+    "name": "Keqing",
+    "element": "Electro",
+    "talent": "Prosperity",
+    "rarity": 5
+  },
+
+  {
+    "name": "Kirara",
+    "element": "Dendro",
+    "talent": "Transience",
+    "rarity": 4
+  },
+
+  {
+    "name": "Klee",
+    "element": "Pyro",
+    "talent": "Freedom",
+    "rarity": 5
+  },
+
+  {
+    "name": "Kujou Sara",
+    "element": "Electro",
+    "talent": "Elegance",
+    "rarity": 4
+  },
+
+  {
+    "name": "Kuki Shinobu",
+    "element": "Electro",
+    "talent": "Elegance",
+    "rarity": 4
+  },
+
+  {
+    "name": "Lisa",
+    "element": "Electro",
+    "talent": "Ballad",
+    "rarity": 4
+  },
+
+  {
+    "name": "Mika",
+    "element": "Cryo",
+    "talent": "Ballad",
+    "rarity": 4
+  },
+
+  {
+    "name": "Mona",
+    "element": "Hydro",
+    "talent": "Resistance",
+    "rarity": 5
+  },
+
+  {
+    "name": "Nahida",
+    "element": "Dendro",
+    "talent": "Ingenuity",
+    "rarity": 5
+  },
+
+  {
+    "name": "Nilou",
+    "element": "Hydro",
+    "talent": "Praxis",
+    "rarity": 5
+  },
+
+  {
+    "name": "Ningguang",
+    "element": "Geo",
+    "talent": "Prosperity",
+    "rarity": 4
+  },
+
+  {
+    "name": "Noelle",
+    "element": "Geo",
+    "talent": "Resistance",
+    "rarity": 4
+  },
+
+  {
+    "name": "Qiqi",
+    "element": "Cryo",
+    "talent": "Prosperity",
+    "rarity": 5
+  },
+
+  {
+    "name": "Raiden Shogun",
+    "element": "Electro",
+    "talent": "Light",
+    "rarity": 5
+  },
+
+  {
+    "name": "Razor",
+    "element": "Electro",
+    "talent": "Resistance",
+    "rarity": 4
+  },
+
+  {
+    "name": "Rosaria",
+    "element": "Cryo",
+    "talent": "Ballad",
+    "rarity": 4
+  },
+
+  {
+    "name": "Sangonomiya Kokomi",
+    "element": "Hydro",
+    "talent": "Transience",
+    "rarity": 5
+  },
+
+  {
+    "name": "Sayu",
+    "element": "Anemo",
+    "talent": "Light",
+    "rarity": 4
+  },
+
+  {
+    "name": "Shenhe",
+    "element": "Cryo",
+    "talent": "Prosperity",
+    "rarity": 5
+  },
+
+  {
+    "name": "Shikanion Heizou",
+    "element": "Anemo",
+    "talent": "Transience",
+    "rarity": 4
+  },
+
+  {
+    "name": "Sucrose",
+    "element": "Anemo",
+    "talent": "Freedom",
+    "rarity": 4
+  },
+
+  {
+    "name": "Tartaglia",
+    "element": "Hydro",
+    "talent": "Freedom",
+    "rarity": 5
+  },
+
+  {
+    "name": "Thoma",
+    "element": "Pyro",
+    "talent": "Transience",
+    "rarity": 4
+  },
+
+  {
+    "name": "Tighnari",
+    "element": "Dendro",
+    "talent": "Admonition",
+    "rarity": 5
+  },
+
+  {
+    "name": "Traveler",
+    "element": "Anemo",
+    "talent": "Freedom",
+    "rarity": 5
+  },
+
+  {
+    "name": "Traveler",
+    "element": "Geo",
+    "talent": "Prosperity",
+    "rarity": 5
+  },
+  {
+    "name": "Traveler",
+    "element": "Electro",
+    "talent": "Transience",
+    "rarity": 5
+  },
+
+  {
+    "name": "Traveler",
+    "element": "Dendro",
+    "talent": "Admonition",
+    "rarity": 5
+  },
+
+  {
+    "name": "Venti",
+    "element": "Anemo",
+    "talent": "Ballad",
+    "rarity": 5
+  },
+
+  {
+    "name": "Wanderer",
+    "element": "Anemo",
+    "talent": "Praxis",
+    "rarity": 5
+  },
+
+  {
+    "name": "Xiangling",
+    "element": "Pyro",
+    "talent": "Diligence",
+    "rarity": 4
+  },
+
+  {
+    "name": "Xiao",
+    "element": "Anemo",
+    "talent": "Prosperity",
+    "rarity": 5
+  },
+
+  {
+    "name": "Xingqiu",
+    "element": "Hydro",
+    "talent": "Gold",
+    "rarity": 4
+  },
+
+  {
+    "name": "Xinyan",
+    "element": "Pyro",
+    "talent": "Gold",
+    "rarity": 4
+  },
+
+  {
+    "name": "Yae Miko",
+    "element": "Electro",
+    "talent": "Light",
+    "rarity": 5
+  },
+
+  {
+    "name": "Yanfei",
+    "element": "Pyro",
+    "talent": "Gold",
+    "rarity": 4
+  },
+
+  {
+    "name": "Yaoyao",
+    "element": "Dendro",
+    "talent": "Diligence",
+    "rarity": 4
+  },
+
+  {
+    "name": "Yelan",
+    "element": "Hydro",
+    "talent": "Prosperity",
+    "rarity": 5
+  },
+
+  {
+    "name": "Yoimiya",
+    "element": "Pyro",
+    "talent": "Transience",
+    "rarity": 5
+  },
+
+  {
+    "name": "Yun Jin",
+    "element": "Geo",
+    "talent": "Diligence",
+    "rarity": 4
+  },
+
+  {
+    "name": "Zhongli",
+    "element": "Geo",
+    "talent": "Gold",
+    "rarity": 5
+  }
+]

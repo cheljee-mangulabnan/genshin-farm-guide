@@ -123,40 +123,26 @@ function getTalentMaterials(currentDay) {
 getTalentMaterials(currentDay)
 
 // --------------------- Characters
-// Character Object Constructor
-function Character(name, element, talent, rarity) {
-  this.name = name
-  this.element = element
-  this.talent = talent
-  this.icon =
-    '../assets/character-icons/' +
-    name.toLowerCase().replace(' ', '-').concat('-icon.png')
-  this.rarity = rarity
-}
-
 
 function makeCharIcon() {
   allChars.forEach(char => {
     const iconSrc = '../assets/character-icons/' +
-    char.name.toLowerCase().replace(' ', '-').concat('-icon.png')
+      char.name.toLowerCase().replace(' ', '-').concat('-icon.png')
     char.icon = iconSrc
   });
 }
- 
+
 async function getCharData() {
   try {
     const response = await fetch('./char-data.json')
     // .json() -> converts json to javascript object
     const data = await response.json()
-    console.log(data)
     for (char of data) {
       allChars.push(char)
     }
     makeCharIcon()
     farmableTalents()
-    console.log(allChars[0].name)
-
-  } catch(error) {
+  } catch (error) {
     console.log(error)
   }
 }
