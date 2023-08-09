@@ -122,14 +122,15 @@ function getTalentMaterials(currentDay) {
 }
 getTalentMaterials(currentDay)
 
-// --------------------- Characters
+// Characters
 
 function makeCharIcon() {
-  allChars.forEach(char => {
-    const iconSrc = '../assets/character-icons/' +
+  allChars.forEach((char) => {
+    const iconSrc =
+      '../assets/character-icons/' +
       char.name.toLowerCase().replace(' ', '-').concat('-icon.png')
     char.icon = iconSrc
-  });
+  })
 }
 
 async function getCharData() {
@@ -137,6 +138,7 @@ async function getCharData() {
     const response = await fetch('./char-data.json')
     // .json() -> converts json to javascript object
     const data = await response.json()
+    // TODO: forEach
     for (char of data) {
       allChars.push(char)
     }
@@ -162,6 +164,7 @@ function renderChars(charArray, destination) {
     return b.rarity - a.rarity
   }
   charArray.sort(compareRarity)
+  // TODO: Change to charArray.forEach()
   for (chars of charArray) {
     const charImgEl = document.createElement('img')
     charImgEl.setAttribute('src', chars.icon)
@@ -188,10 +191,11 @@ function farmableTalents() {
       sumeruFarmableChars.push(char)
     }
   }
+  // TODO: change to allChars.forEach()
   for (char of allChars) {
     // Sorts char acc to the region of their talent materials
     if (ifFarmableDay('sunday')) {
-      // IDK YET
+      // TODO: Display all chars and materials
     } else if (ifFarmableDay('monday', 'thursday')) {
       sortCharRegion(0)
     } else if (ifFarmableDay('tuesday', 'friday')) {
@@ -208,8 +212,7 @@ function farmableTalents() {
   renderChars(sumeruFarmableChars, '.sumeru-characters-container')
 }
 
-
-// Responsive Burger Menu 
+// Responsive Burger Menu
 const burger = document.querySelector('.burger')
 burger.onclick = () => {
   const navBar = document.querySelector('.nav-bar')
